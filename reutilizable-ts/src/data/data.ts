@@ -23,12 +23,14 @@ export const recipes = [
         userName: "EmmaWilson",
         recipeName: "French Toast",
           photo: toastImage
+
     },
     {
         id: 3,
         userName: "LucasGonzalez",
         recipeName: "Romantic Breakfast",
         photo: braskfastImage
+
     },
     {
         id: 4,
