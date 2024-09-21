@@ -2,11 +2,10 @@ import recipes from './data/data';
 import stories from './data/dataProfile'; 
 import Post, { Attribute } from './components/card/card';
 import Storie from './components/profileStorie/storie';
-import { SearchBar } from './components/search-bar/searchBar'; //Aqui se pone rojito y no he podido arreglarlo
-
+import SearchBar from './components/search-bar/searchBar';
 class AppContainer extends HTMLElement {
     recipesList: Post[] = [];
-    storiesList: HTMLElement[] = []; // Cambiado a HTMLElement[]
+    storiesList: HTMLElement[] = []; 
 
     constructor() {
         super();
@@ -45,14 +44,14 @@ class AppContainer extends HTMLElement {
             const storyContainer = this.shadowRoot.querySelector("#story-container");
             const postContainer = this.shadowRoot.querySelector("#component-post");
 
-            // Añadir historias al contenedor
+            //aqui meto las stories que aun no se quieren pintar
             this.storiesList.forEach(story => {
                 if (storyContainer) {
                     storyContainer.appendChild(story);
                 }
             });
 
-            // Añadir recetas al contenedor
+            //Aqui las recetas meto al contenedor
             this.recipesList.forEach(recipe => {
                 if (postContainer) {
                     postContainer.appendChild(recipe);

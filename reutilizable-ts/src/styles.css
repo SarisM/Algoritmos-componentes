@@ -8,7 +8,7 @@
 }
 
 #component-post {
-    background-color: rgb(237, 237, 237);
+    background-color: rgb(235, 227, 237);
     display: flex;         /* Activa Flexbox */
     flex-wrap: wrap;       /* Permite que los elementos se ajusten a la siguiente fila */
     justify-content: flex-start; /* Alinea los componentes hacia la izquierda */
