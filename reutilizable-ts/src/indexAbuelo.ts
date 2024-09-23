@@ -1,8 +1,10 @@
 import recipes from './data/data';
 import stories from './data/dataProfile'; 
 import Post, { Attribute } from './components/card/card';
-import Storie from './components/profileStorie/storie';
-import SearchBar from './components/search-bar/searchBar';
+import Storie, { StorieAttribute} from './components/profileStorie/storie';
+import SearchBar, { SearchAttribute } from './components/search-bar/searchBar';
+
+
 class AppContainer extends HTMLElement {
     recipesList: Post[] = [];
     storiesList: HTMLElement[] = []; 
@@ -23,7 +25,7 @@ class AppContainer extends HTMLElement {
         // Crear el listado de historias
         stories.forEach(story => {
             const storyElement = this.ownerDocument.createElement("profile-storie") as Storie; 
-            storyElement.setAttribute(Attribute.photo, story.photo);
+            storyElement.setAttribute(StorieAttribute.photo, story.photo);
             this.storiesList.push(storyElement);
         });
     }
@@ -36,9 +38,21 @@ class AppContainer extends HTMLElement {
         if (this.shadowRoot) {
             this.shadowRoot.innerHTML = `
                 <link rel="stylesheet" href="../src/styles.css">
-                <search-bar placeholder="Search for a recipe..."></search-bar>
-                <div id="story-container"></div> 
+
+                <div id="arriba">
+                  <div id="izquierda">
+                    <div id="story-container"></div> 
+                  </div>
+                  <div id="derecha">
+                    <search-bar  ${SearchAttribute.placeholder}="Search recipe..."></search-bar>
+                  </div>
+                </div>
+                
+                <div id="post">
                 <div id="component-post"></div>
+                </div>
+                
+                
             `;
 
             const storyContainer = this.shadowRoot.querySelector("#story-container");
